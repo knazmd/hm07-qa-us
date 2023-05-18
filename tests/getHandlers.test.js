@@ -15,7 +15,7 @@ test('Should be 200 status code for getting 1 kit products list', async () => {
     expect(actualStatusCode).toBe(200);
 }); 
 
-test('Body should contain...', async() => {
+test('Body should contain For picnic', async() => {
     let actualResponseBody;
     try{
         const response = await fetch(`${config.API_URL}/api/v1/kits/1`);

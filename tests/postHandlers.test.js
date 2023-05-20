@@ -1,7 +1,15 @@
 // eslint-disable-next-line no-undef
 const config = require('../config');
 
-const requestBody = {}
+const requestBody = {
+	"id": 1,
+	  "productsList": [
+		  {
+			  "id": 1,
+			  "quantity": 1
+		  }
+	  ]
+  }
 
 test('Status code should be 201', async () => {
     let actualStatusCode;
@@ -20,8 +28,6 @@ test('Status code should be 201', async () => {
 	expect(actualStatusCode).toBe(201);
 });
 
-
-
 test('Status body should contain wareHouse(Fresh Food)', async () => {
     let actualResponseBody;
 	try {
@@ -37,4 +43,4 @@ test('Status body should contain wareHouse(Fresh Food)', async () => {
 		console.error(error);
 	}
 	expect(actualResponseBody["wareHouse"]).toBe("Fresh Food");
-})
+});

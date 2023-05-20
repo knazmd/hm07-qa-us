@@ -2,13 +2,13 @@
 
 const config = require('../config');
 
-test('Status code should be 404', async () => {
+test('Status code should be 200', async () => {
 
   let actualStatusCode;
 
   try {
 
-    const response = await fetch(`${config.API_URL}/api/v1/orders/1`, {
+    const response = await fetch(`${config.API_URL}/api/v1/kits/5`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
@@ -21,17 +21,17 @@ test('Status code should be 404', async () => {
     console.error(error);
   }
 
-  expect(actualStatusCode).toBe(404);
+  expect(actualStatusCode).toBe(200);
 
 });
 
 
-test('Status body should contain false', async () => {
+test('Status body should contain true', async () => {
 
 	let isDeleted = false;
   
 	try {
-	  const response = await fetch(`${config.API_URL}/api/v1/orders/1`, {
+	  const response = await fetch(`${config.API_URL}/api/v1/kits/5`, {
 		method: 'DELETE',
 	  });
   
@@ -41,6 +41,6 @@ test('Status body should contain false', async () => {
 	  console.error(error);
 	}
   
-	expect(isDeleted).toBe(false);
+	expect(isDeleted).toBe(true);
   });
   
